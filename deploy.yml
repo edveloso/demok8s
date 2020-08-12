@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: demo
+  name: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: demo
+    spec:
+      containers:
+      - image: dev-harbor.np-ctn.prevnet/teste/demo:3.0
+        imagePullPolicy: IfNotPresent
+        name: demo
+        resources: {}
+      imagePullSecrets:
+      - name: regcred        
+status: {}

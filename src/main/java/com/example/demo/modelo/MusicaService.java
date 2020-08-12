@@ -17,7 +17,7 @@ public class MusicaService {
 	private RestTemplate template;
 	
 	@Value("${myrest.url}")
-    private String restUrl;
+	private String restUrl;
 	
 	@Transactional
 	public void salvar(Musica musica) {
@@ -32,6 +32,7 @@ public class MusicaService {
 		for (Musica musica : findAll) {
 			musica.setGrauInstrucao(retorno);
 		}
+		
 		return findAll;
 	}
 
@@ -43,21 +44,5 @@ public class MusicaService {
 		this.repo = repo;
 	}
 
-	public RestTemplate getTemplate() {
-		return template;
-	}
-
-	public void setTemplate(RestTemplate template) {
-		this.template = template;
-	}
-
-	public String getRestUrl() {
-		return restUrl;
-	}
-
-	public void setRestUrl(String restUrl) {
-		this.restUrl = restUrl;
-	}
-	
 	
 }
